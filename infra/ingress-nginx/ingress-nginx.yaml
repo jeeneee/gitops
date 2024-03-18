@@ -353,12 +353,16 @@ spec:
       name: http
       port: 80
       protocol: TCP
-      targetPort: http
+      targetPort: 80
     - appProtocol: https
       name: https
       port: 443
       protocol: TCP
-      targetPort: https
+      targetPort: 443
+    - name: proxied-tcp-3307
+      port: 3307
+      protocol: TCP
+      targetPort: 3307
   selector:
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: ingress-nginx
@@ -423,6 +427,7 @@ spec:
       containers:
         - args:
             - /nginx-ingress-controller
+            - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
             - --publish-service=$(POD_NAMESPACE)/ingress-nginx-controller
             - --election-id=ingress-nginx-leader
             - --controller-class=k8s.io/ingress-nginx

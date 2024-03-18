@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+  namespace: mysql
+data:
+  MYSQL_USER: "jeenee"
+  MYSQL_ROOT_HOST: "%"

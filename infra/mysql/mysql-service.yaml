@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql-dev
+  namespace: mysql
+spec:
+  externalTrafficPolicy: Local
+  selector:
+    app: mysql
+  type: LoadBalancer
+  ports:
+    - name: mysql-dev
+      port: 3306
+      targetPort: 3306
+      protocol: TCP
