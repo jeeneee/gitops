@@ -5,3 +5,4 @@ metadata:
   namespace: ingress-nginx
 data:
   3307: "mysql/mysql-dev:3306"
+  8080: "argocd/argocd-server:80"

@@ -363,6 +363,10 @@ spec:
       port: 3307
       protocol: TCP
       targetPort: 3307
+    - name: proxied-tcp-8080
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
   selector:
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: ingress-nginx
