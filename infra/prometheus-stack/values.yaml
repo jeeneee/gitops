@@ -1,3 +1,5 @@
+# https://github.com/prometheus-community/helm-charts
+# helm upgrade -f values.yaml stable prometheus-community/kube-prometheus-stack -n monitoring
 grafana:
   enabled: true
   defaultDashboardsTimezone: Asia/Seoul
