@@ -1,0 +1,33 @@
+grafana:
+  enabled: true
+  defaultDashboardsTimezone: Asia/Seoul
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - grafana.atreides.kr
+    path: /
+    tls:
+      - secretName: grafana-tls
+        hosts:
+          - grafana.atreides.kr
+
+## Deploy a Prometheus instance
+##
+prometheus:
+  enabled: true
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - prometheus.atreides.kr
+    paths:
+      - "/*"
+    tls:
+      - secretName: prometheus-tls
+        hosts:
+          - prometheus.atreides.kr
